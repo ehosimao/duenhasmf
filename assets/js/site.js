@@ -3,7 +3,7 @@
 /* CONFIGURAÇÃO: coloque aqui o número do WhatsApp da loja, só números,
    com DDI e DDD. Exemplo: '5519999999999'. Enquanto estiver vazio,
    os botões de WhatsApp levam para o Instagram da loja. */
-var WHATSAPP_NUMERO = '';
+var WHATSAPP_NUMERO = '5519994791051';
 var INSTAGRAM_URL = 'https://www.instagram.com/duenhasmf/';
 
 function linkWhatsApp(texto) {
