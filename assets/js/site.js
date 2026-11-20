@@ -6,9 +6,15 @@
 var WHATSAPP_NUMERO = '5519994791051';
 var INSTAGRAM_URL = 'https://www.instagram.com/duenhasmf/';
 
+/* No celular, abre o aplicativo do WhatsApp.
+   No computador, abre o WhatsApp Web (sem exigir o app instalado). */
+var EH_CELULAR = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+
 function linkWhatsApp(texto) {
   if (!WHATSAPP_NUMERO) return INSTAGRAM_URL;
-  return 'https://wa.me/' + WHATSAPP_NUMERO + '?text=' + encodeURIComponent(texto || 'Olá! Vim pelo site da Duenhas.');
+  var msg = encodeURIComponent(texto || 'Olá! Vim pelo site da Duenhas.');
+  if (EH_CELULAR) return 'https://api.whatsapp.com/send?phone=' + WHATSAPP_NUMERO + '&text=' + msg;
+  return 'https://web.whatsapp.com/send?phone=' + WHATSAPP_NUMERO + '&text=' + msg;
 }
 
 document.querySelectorAll('[data-wa]').forEach(function (a) {
